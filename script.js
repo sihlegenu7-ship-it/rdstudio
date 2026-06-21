@@ -1,7 +1,7 @@
 /* ── Active nav link highlight ── */
 (function () {
   /* ── Active nav link highlight ── */
-  const page = location.pathname.split('/').pop() || 'INDEX.html';
+  const page = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('nav ul a').forEach(a => {
     const href = a.getAttribute('href');
     if (href && href.toLowerCase() === page.toLowerCase()) {
