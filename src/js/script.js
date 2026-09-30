@@ -1,10 +1,11 @@
 /* ── Active nav link highlight ── */
 (function () {
-  /* ── Active nav link highlight ── */
   const page = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('nav ul a').forEach(a => {
     const href = a.getAttribute('href');
-    if (href && href.toLowerCase() === page.toLowerCase()) {
+    if (!href) return;
+    const hrefPage = href.split('/').pop() || href;
+    if (hrefPage.toLowerCase() === page.toLowerCase()) {
       a.classList.add('active');
     }
   });
@@ -53,7 +54,8 @@ if (signOutBtn) {
       animation: slideUp 0.65s cubic-bezier(0.76,0,0.24,1) forwards;
     `;
     document.body.appendChild(overlay);
-    setTimeout(() => window.location.href = 'AUTH.html', 650);
+    const authPath = location.pathname.includes('/pages/') ? '../auth.html' : 'auth.html';
+    setTimeout(() => window.location.href = authPath, 650);
   });
 }
 

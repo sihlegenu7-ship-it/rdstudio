@@ -1,191 +1,126 @@
 # Real Deal Studios
 
-A multi-page marketing website for **Real Deal Studios**, a South African web design studio providing affordable, professional websites for artists, musicians, and other creative professionals.
+A polished multi-page marketing website for Real Deal Studios, a South African creative studio focused on helping artists, musicians, and entrepreneurs build credible online brands.
 
-The website is built using **static HTML, CSS, and vanilla JavaScript** — with no frameworks, build tools, or external dependencies required.
-
-## Website Structure
-
-Main navigation flow:
-
-`INDEX.html` → `ABOUT.html` → `SERVICES.html` → `CONTACT.html`
-
-Additional page:
-
-`AUTH.html` — authentication/marketing entry page.
+The project is built with static HTML, CSS, and JavaScript to deliver a fast, lightweight, and responsive front-end experience without a framework or build pipeline.
 
 ---
 
-# Pages
+## Overview
 
-| File            | Purpose                                                                                                                                                                             |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `INDEX.html`    | Sign-in / sign-up page. This page is self-contained and currently includes its own `<style>` and `<script>` sections instead of using the shared `STYLE.css` and `SCRIPT.js` files. |
-| `AUTH.html`     | Marketing homepage featuring the main hero section ("Your Art Deserves a Stage") and call-to-action content.                                                                        |
-| `ABOUT.html`    | Introduces the studio mission, explains the value of professional websites, and highlights key statistics.                                                                          |
-| `SERVICES.html` | Displays available services including web design, redesigns, SEO, domain & hosting, and maintenance.                                                                                |
-| `CONTACT.html`  | Contains the contact form, WhatsApp integration, studio information, and floating WhatsApp button.                                                                                  |
+Real Deal Studios provides affordable, professional website design and digital support for creatives who want a strong online presence without the complexity or cost of a traditional agency.
 
-> **Note:** `INDEX.html` and `AUTH.html` currently have their roles reversed compared to the navigation structure. The navigation treats `INDEX.html` as the homepage, but the actual marketing homepage content exists inside `AUTH.html`.
+This project includes:
 
----
-
-# Tech Stack
-
-* **HTML5** — Semantic structure and accessibility features including ARIA labels for navigation and landmarks.
-* **CSS3** — Custom properties (`:root` variables), CSS Grid, Flexbox, animations, and responsive layouts.
-* **Vanilla JavaScript** — Handles interactive functionality without external libraries or frameworks.
-* **Google Fonts** — Bebas Neue, DM Sans, and Space Mono.
-* **Font Awesome CDN** — Used for WhatsApp icons on `CONTACT.html`.
+- A branded landing/authentication experience
+- Dedicated About, Services, and Contact pages
+- Responsive navigation and mobile menu behavior
+- Form interactions and polished marketing sections
+- Custom visual styling consistent with the studio brand
 
 ---
 
-# Project Structure
+## Project Structure
 
-```
-.
-├── INDEX.html             # Sign-in / sign-up page
-├── AUTH.html              # Marketing homepage
-├── ABOUT.html
-├── SERVICES.html
-├── CONTACT.html
-├── STYLE.css              # Shared stylesheet (all pages except INDEX.html)
-├── SCRIPT.js              # Shared JavaScript functionality
-│
-├── about.png
-├── contact.png            # Currently unused
-├── deal.png
-├── office.png
-├── real.png
-├── services.png
-├── studioimage.png
-└── team-photo.png
+```text
+rdstudio/
+├── index.html                  # Landing/auth entry page
+├── auth.html                   # Alternative auth/entry flow
+├── pages/
+│   ├── about.html              # Studio story and mission
+│   ├── services.html           # Service offerings
+│   └── contact.html            # Contact form and business details
+├── src/
+│   ├── css/
+│   │   └── style.css           # Shared styling system
+│   ├── js/
+│   │   └── script.js           # Shared interactions and page behavior
+│   └── assets/
+│       └── images/             # Site graphics and imagery
+├── README.md
+└── .gitignore
 ```
 
 ---
 
-# Running Locally
+## Technologies Used
 
-This is a static website, meaning no backend, database, or build process is required.
+- HTML5 for structure and content
+- CSS3 for layout, responsiveness, and visual design
+- Vanilla JavaScript for navigation, form interactions, and transitions
+- Google Fonts for the branding typography
+- Font Awesome for the WhatsApp support icon
+
+---
+
+## Pages Included
+
+| Page | Purpose |
+| --- | --- |
+| index.html | Landing/authentication-style home experience |
+| auth.html | Alternate entry/access page |
+| pages/about.html | Studio overview, mission, and value proposition |
+| pages/services.html | Service list and marketing content |
+| pages/contact.html | Contact information and inquiry form |
+
+---
+
+## Local Development
+
+This is a static website, so no installation or build step is required.
 
 ### Option 1: Open directly
 
-Open:
+Open the project folder in a browser and launch the home page:
 
+```text
+index.html
 ```
-INDEX.html
-```
 
-in your browser.
+### Option 2: Run a local server
 
-### Option 2: Run a local server (recommended)
-
-Using Python:
+From the project root, run:
 
 ```bash
-python3 -m http.server 8000
+python -m http.server 8000
 ```
 
 Then open:
 
-```
+```text
 http://localhost:8000
 ```
 
 ---
 
-# Features
+## Features
 
-* Responsive design for desktop, tablet, and mobile devices.
-* Custom hamburger menu for screens below 900px.
-* Animated page content using `fade-up` CSS animations.
-* Automatic active navigation link highlighting.
-* Simulated contact form submission with loading and success states.
-* Client-side sign-in/sign-up experience with password strength validation.
-* Floating WhatsApp contact button.
-* Animated scrolling services ticker across marketing pages.
-
----
-
-# Known Improvements
-
-The following items should be addressed before production launch:
-
-### 1. Homepage Navigation Issue
-
-The navigation currently points "Home" to `INDEX.html`, but the actual marketing homepage is located in `AUTH.html`.
-
-**Suggested fix:**
-Rename files or swap responsibilities so the homepage and authentication pages match their intended purpose.
+- Fully responsive layout for desktop and mobile
+- Custom brand styling with warm editorial tones
+- Animated hero and content transitions
+- Interactive mobile navigation menu
+- Floating WhatsApp contact call-to-action
+- Contact and auth form UI interactions
+- Clean multi-page structure for easier maintenance
 
 ---
 
-### 2. Duplicate JavaScript Logic
+## Notes
 
-`INDEX.html` does not load `SCRIPT.js` and instead contains its own JavaScript.
+This project is currently a front-end UI and marketing website. It does not yet include a real backend authentication system, database, or live form processing.
 
-This creates duplicate functionality that may become difficult to maintain.
+Future improvements could include:
 
-**Suggested fix:**
-Move shared functionality into `SCRIPT.js` and load it across all pages.
-
----
-
-### 3. Authentication System
-
-The sign-in/sign-up functionality is currently only a front-end simulation.
-
-There is:
-
-* No database
-* No user accounts
-* No authentication service
-* No session management
-
-**Suggested improvement:**
-Connect the forms to a backend service or authentication provider before launch.
+- Real user authentication
+- Backend-driven form submissions
+- CMS or content management integration
+- SEO enhancements and metadata refinement
 
 ---
 
-### 4. Unused Image Asset
+## License
 
-`contact.png` currently exists in the project but is not being used.
-
-**Suggested improvement:**
-Either remove the file or integrate it into `CONTACT.html`.
-
----
-
-### 5. Form Submission
-
-The contact and authentication forms currently simulate successful submissions using JavaScript timers.
-
-They do not send real emails or store user information.
-
-**Suggested improvement:**
-Connect forms to a backend, email service, or database.
-
----
-
-### 6. Duplicate Responsive CSS
-
-`INDEX.html` contains responsive CSS rules that overlap with `STYLE.css`.
-
-This means future design changes may need to be updated in multiple places.
-
-**Suggested improvement:**
-Move all styling into `STYLE.css` for easier maintenance.
-
----
-
-# License
-
-License information has not been decided yet.
-
-Possible options:
-
-* MIT License (open source)
-* All Rights Reserved (private/proprietary project)
+This project is currently intended for internal/private use unless otherwise specified.
 
 ---
 
